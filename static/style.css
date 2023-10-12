@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif; /* ページ内のテキストのフォントファミリー */
+    background-color: #f2f2f2; /* ページの背景色：灰色 */
+}
+
+h1 {
+    color: #333;/*タグ内のテキストの色*/
+}
+
+p {
+    margin: 10px; /*タグの周囲の余白*/
+    padding: 5px; /*タグ内のコンテンツと要素の境界（ボーダー）の間の余白*/
+    background-color: #fff; /*タグの背景色*/
+}

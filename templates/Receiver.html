@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <neta charset="UTF-8">
+        <title>Receiver</title>
+    </head>
+    <body>
+        <h1>Receiver</h1>
+        {% if Maker_list == [] %}
+            <p>現在提供できる物資はありません</p>
+        {% else %}
+            {% for Maker in Maker_list %}
+            <br>id:{{Maker.id}}</br>
+            <br>maker_id:{{Maker.maker_id}}</br>
+            <br>カテゴリ:{{Maker.category}}</br>
+            <br>材料名 :{{Maker.material}}</br>
+            <br>状態:{{Maker.form}}</br>    
+            <br>状態:{{Maker.condition}}</br>    
+            <br>重量(g):{{Maker.weight}}</br>    
+            <br>期限:{{Maker.best_before}}</br>    
+            <br>作成日 :{{Maker.create_at}}</br>    
+            <br>更新日 :{{Maker.updated_at}}</br>    
+            <br>メモ:{{Maker.memo}}</br> 
+            {% endfor %}
+        {% endif %}
+        </table>
+        <a href="{{ url_for('Receiver_edit')}}">ほしい物資編集</a>
+    </body>    
+</html>

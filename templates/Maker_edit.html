@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <neta charset="UTF-8">
+        <title>Waste Cycle</title>
+    </head>
+    <body>
+        <h1>Maker</h1>
+        <form method="post" action="{{url_for('register_MakerInfo')}}">
+            <p>提供物</p>
+            <p>
+                <label for="category">カテゴリ : </label> 
+                <select name="category" required>
+                    <option value="">-選択してください-</option>
+                    <option value="野菜">野菜</option>
+                    <option value="肉">肉</option>
+                    <option value="魚">魚</option>
+                    <option value="調味料">調味料</option>
+                    <option value="飲料">飲料</option>
+                    <option value="加工食品">加工食品</option>
+                    <option value="菓子類">菓子類</option>
+                    <option value="酒類">酒類</option>
+                    <option value="その他">その他</option>
+                </select>
+            </p>
+            <p>
+                <label for="material">商品名 : </label> 
+                <input type="text" name="material">
+            </p>
+            <p>
+                <label for="form">状態 : </label> 
+                <select name="form" required>
+                    <option value="">-選択してください-</option>
+                    <option value="そのまま">そのまま</option>
+                    <option value="ペースト">ペースト</option>
+                    <option value="粉末">粉末</option>
+                    <option value="その他">その他</option>
+                </select>
+            </p>
+            <p>
+                <label for="condition">状態 : </label> 
+                <select name="condition" required>
+                    <option value="">-選択してください-</option>
+                    <option value="傷がついている">傷がついている</option>
+                    <option value="傷がついていない">傷がついていない</option>                    
+                </select>
+            </p>
+            <p>
+                <label for="weight">重量(g) : </label> 
+                <input type="text" name="weight">
+            </p>
+            <p>
+                <label for="best_before">賞味期限 : </label> 
+                <input type="text" name="best_before">
+            </p>
+            <p>
+                <label for="create_at">作成日 : </label> 
+                <input type="text" name="create_at">
+            </p>
+            <p>
+                <label for="updated_at">更新日 : </label> 
+                <input type="text" name="updated_at">
+            </p>
+            <p><label for="memo">メモ</label></p>
+            <p><textarea name="memo" style="width:200px;height:50px;"></textarea></p>
+            <p></p>
+            <input type="submit" value="登録">    
+        </form>
+        <p></p>
+        <a href="{{ url_for('Maker')}}">Makerページへ戻る</a>
+        <p></p>
+        {% if My_Mlist == [] %}
+            <p>現在登録しているデータはありません</p>
+        {% else %}
+            {% for My_data in My_Mlist %}            
+            <br>id:{{My_data.id}}</br>
+            <br>receiver_id:{{My_data.receiver_id}}</br>
+            <br>カテゴリ:{{My_data.category}}</br>
+            <br>材料名 :{{My_data.material}}</br>
+            <br>状態:{{My_data.form}}</br>    
+            <br>状態:{{My_data.condition}}</br>    
+            <br>重量(g):{{My_data.weight}}</br>    
+            <br>期限:{{My_data.best_before}}</br>    
+            <br>作成日 :{{My_data.create_at}}</br>    
+            <br>更新日 :{{My_data.updated_at}}</br>    
+            <br>メモ:{{My_data.memo}}</br> 
+            {% endfor %}
+        {% endif %}
+    </body>    
+</html>

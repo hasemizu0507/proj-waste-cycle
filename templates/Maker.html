@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <neta charset="UTF-8">
+        <title>Maker</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    </head>
+    <body>
+        <h1>Maker</h1>
+        {% if Receiver_list == [] %}
+            <p>現在ほしい物資はありません</p>
+        {% else %}
+            {% for Receiver in Receiver_list %}            
+            <br>id:{{Receiver.id}}</br>
+            <br>receiver_id:{{Receiver.receiver_id}}</br>
+            <br>カテゴリ:{{Receiver.category}}</br>
+            <br>材料名 :{{Receiver.material}}</br>
+            <br>状態:{{Receiver.form}}</br>    
+            <br>状態:{{Receiver.condition}}</br>    
+            <br>重量(g):{{Receiver.weight}}</br>    
+            <br>期限:{{Receiver.best_before}}</br>    
+            <br>作成日 :{{Receiver.create_at}}</br>    
+            <br>更新日 :{{Receiver.updated_at}}</br>    
+            <br>メモ:{{Receiver.memo}}</br> 
+            {% endfor %}
+        {% endif %}
+        </table>
+        <a href="{{ url_for('Maker_edit')}}">提供物資編集</a>
+    </body>    
+</html>
